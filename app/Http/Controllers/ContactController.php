@@ -12,7 +12,7 @@ class ContactController extends Controller
         $this->middleware('auth');
     }
     //
-
+    //
     public function index(){
         $contacts = Contact::orderBy('id', 'desc')->paginate(5);
 
