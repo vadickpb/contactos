@@ -13,11 +13,11 @@
 
                 <div class="card-body text-center">
 
-
+                    
                     @foreach ($contacts as $contact)
-
-
-
+                    
+                    @if ($contact->user_id == Auth::user()->id)
+                    
                     <p>{{'Nombres y apellidos: '. $contact->name }}</p>
 
                     <p>{{'Celular: '. $contact->telefono }}</p>
@@ -25,15 +25,22 @@
 
 
 
-                    <input type="submit" class="btn btn-success btn-sm" value="Editar Contacto">
-                    <input type="submit" class="btn btn-danger btn-sm" value="Eliminar Contacto">
+                    <a href="{{ route('contact.edit', ['id' => $contact->id]) }}" class="btn btn-success btn-sm">Editar contacto</a>
+                    <a href="" class="btn btn-danger btn-sm">Eliminar contacto</a>
 
+                    
+                    
+                    
+                    
                     <hr>
 
-
-
+                    
+                    
+                    @endif
+                    
+                    
                     @endforeach
-
+                    
                 </div>
             </div>
         </div>
