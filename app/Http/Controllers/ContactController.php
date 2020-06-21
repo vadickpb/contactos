@@ -16,7 +16,10 @@ class ContactController extends Controller
     //
     //
     public function index(){
-        $contacts = Contact::orderBy('id', 'desc')->paginate(5);
+        $user = Auth::user();
+        $contacts = Contact::orderBy('id', 'desc')
+                            ->where('user_id', $user->id)
+                            ->paginate(5);
 
         return view('contact.index', [
             'contacts' =>$contacts
@@ -102,6 +105,29 @@ class ContactController extends Controller
        return redirect()->route('contact.edit',['id' => $contact_id])
                         ->with(['message' => 'el contacto se actualizó correctamente']);
 
+
+    }
+
+    public function delete($id){
+        
+        //obtener el objeto del contacto a eliminar y del usuario
+        $user = Auth::user();
+        $contact = Contact::find($id);
+
+        if($user && $contact && $user->id == $contact->user_id){
+
+            //eliminar contacto
+            $contact->delete();
+
+            $message = ['message' => 'El contacto se eliminó correctamente'];
+
+        }else{
+            $message = ['message' => 'El contacto no se eliminó correctamente'];
+
+        }
+
+        return redirect()->route('contact.index')
+                        ->with($message);
 
     }
 }

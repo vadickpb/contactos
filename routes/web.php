@@ -25,3 +25,4 @@ Route::get('/contactos/crear','ContactController@create')->name('contact.create'
 Route::post('/contactos/save','ContactController@save')->name('contact.save');
 Route::get('/contactos/edit/{id}','ContactController@edit')->name('contact.edit');
 Route::post('/contactos/update/','ContactController@update')->name('contact.update');
+Route::get('/contactos/delete/{id}','ContactController@delete')->name('contact.delete');

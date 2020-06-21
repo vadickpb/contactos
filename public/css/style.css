@@ -1,0 +1,14 @@
+.pie-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pie-card .btn{
+    height: 40px;
+    
+}
+
+.pie-card nav{
+    float: left;
+}
+

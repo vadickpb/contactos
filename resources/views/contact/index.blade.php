@@ -16,30 +16,25 @@
                     
                     @foreach ($contacts as $contact)
                     
-                    @if ($contact->user_id == Auth::user()->id)
                     
                     <p>{{'Nombres y apellidos: '. $contact->name }}</p>
-
                     <p>{{'Celular: '. $contact->telefono }}</p>
 
-
-
-
                     <a href="{{ route('contact.edit', ['id' => $contact->id]) }}" class="btn btn-success btn-sm">Editar contacto</a>
-                    <a href="" class="btn btn-danger btn-sm">Eliminar contacto</a>
-
-                    
-                    
-                    
-                    
+                    <a href="{{ route('contact.delete',['id' => $contact->id]) }}" class="btn btn-danger btn-sm">Eliminar contacto</a>
+              
                     <hr>
-
-                    
-                    
-                    @endif
-                    
                     
                     @endforeach
+                    
+                    {{-- <div class="clearflix"></div> --}}
+                    
+                    <div class="pie-card">
+
+                        <a href="{{ route('contact.create') }}" class="btn btn-success agregar-contacto">Agregar Contacto</a>
+                        {{$contacts->links()}}
+                    </div>
+
                     
                 </div>
             </div>
