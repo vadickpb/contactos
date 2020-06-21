@@ -21,3 +21,5 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/contactos','ContactController@index')->name('contact.index');
+Route::get('/contactos/crear','ContactController@create')->name('contact.create');
+Route::post('/contactos/save','ContactController@save')->name('contact.save');

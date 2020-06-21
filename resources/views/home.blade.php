@@ -16,7 +16,7 @@
 
                     <p>Bienvenido a la agenda de contactos</p>
                     <a href=" {{ route('contact.index') }}" class="btn btn-primary">Ver Contactos</a>
-                    <a href="" class="btn btn-success">Agregar Contacto</a>
+                    <a href="{{ route('contact.create') }}" class="btn btn-success">Agregar Contacto</a>
                 </div>
             </div>
         </div>
